@@ -6,85 +6,82 @@
 }
 
 body {
-    background-image: linear-gradient(to bottom, #c6b5bc, #c1afbc, #baa9bd, #afa5be, #a1a1c0, #929ebe, #819aba, #7097b4, #5f92a8, #518c9a, #47858a, #437e7a);
-    background-attachment: fixed;
-}
-
-.container {
-    
-    width: 600px;
-    padding: 20px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 50px auto;
     border-radius: 10px;
+    background-image: linear-gradient(to bottom, #c6b5bc, #c1afbc, #baa9bd, #afa5be, #a1a1c0, #929ebe, #819aba, #7097b4, #5f92a8, #518c9a, #47858a, #437e7a);
+    background-attachment: fixed;
 }
 
+
 h1 {
-    color: #fff;
+    color: #f6f6f6;
     font-size: 2.2em;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    text-align: center;
 }
   
-input[type="text"] {
-    font-size: 26px;
+input {
+    font-size: 1.75em;
     padding: 5px;
     
 }
-
-input {
-    border-radius: 10px;
-
-}
-  
-.todo-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-  
-li {
-    border-radius: 5px;
-    border: 2px solid black;
-    width: 420px;
+form{
     display: flex;
-    background: #819aba;
+    justify-content: center;
+
+}
+  
+.todo {
+    display: flex;
+    background: #48576b;
     justify-content: space-between;
     align-items: center;
-    font-size: 26px;
+    font-size: 1.25em;
     margin-top: 10px;
     padding-left: 10px;
     overflow: auto;
     color: #f9f9f9;
 }
-.add-button {
-    margin-left: 10px;
-    font-size: 26px;
-    padding: 5px 10px;
+.btn-add {
+    padding: 5px 20px;
     background-color: #070807;
     color: white;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
 }
   
-.add-button:hover {
+.btn-add:hover {
     background-color: #333232;
 }  
-.remove-button {
-    margin-left: 10px;
-    font-size: 20px;
+.btn-remove {
     padding: 5px 10px;
-    background-color: #ff4d4d;
+    background-color: #ef341f;
     color: white;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
   
-.remove-button:hover {
-    background-color: #f5aa50;
+.btn-remove:hover {
+    background-color: #6c0000;
+}
+.btn-complete {
+    padding: 5px 10px;
+    background-color: #53c00f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.btn-complete:hover {
+    background-color: #275a1f;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #070807;
 }

@@ -1,42 +1,42 @@
 import React, { useState } from 'react';
+import TodoForm from './components/TodoForm';
+import Todo from './components/Todo';
 
 const App = () => {
   const [todos, setTodos] = useState([]);
-  const [input, setInput] = useState('');
 
-  const addTodo = () => {
-    if (input === '') 
-    return;
-    const newTodo = { id: Date.now(), input };
-    setTodos([...todos, newTodo]);
-    setInput('');
+  const addTodo = text => {
+    const newTodos = [...todos, {text , completed: false }];
+    setTodos(newTodos);
   };
 
-  const removeTodo = id => {
-    const updatedTodos = todos.filter(todo => todo.id !== id);
-    setTodos(updatedTodos);
+  const completeTodo = index => {
+    const newTodos = [...todos];
+    newTodos[index].completed = true;
+    setTodos(newTodos);
+  };
+
+  const removeTodo = index => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
   };
 
   return (
-    <div className='container'>
+    <div className="app">
       <h1>Seznam úkolů</h1>
-      <div className='input-form'>
-        <input
-          type="text"
-          placeholder='Přidat nový úkol...'
-          value={input}
-          onChange={e => setInput(e.target.value)}
-        />
-        <button className='add-button' onClick={addTodo}>Přidat</button>
-      </div>
-      <ul className='todo-list'>
-        {todos.map(todo => (
-          <li key={todo.id}>
-            {todo.input}
-            <button className='remove-button' onClick={() => removeTodo(todo.id)}>Smazat</button>
-          </li>
+      <TodoForm addTodo={addTodo} />
+      <div className="todo-list">
+        {todos.map((todo, index) => (
+          <Todo
+            key={index}
+            index={index}
+            todo={todo}
+            completeTodo={completeTodo}
+            removeTodo={removeTodo}
+          />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
